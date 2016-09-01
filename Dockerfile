@@ -121,8 +121,6 @@ RUN chown -R jenkins /var/jenkins_home
 
 # slim down image
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
-
-
-EXPOSE 8080 # for main web interface:
-EXPOSE 50000 # will be used by attached slave agents:
+# expose normal web port and slave port for jenkins
+EXPOSE 8000 50000
 
